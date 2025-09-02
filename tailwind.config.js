@@ -7,9 +7,26 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        'bebas': ['Bebas Neue', 'cursive'],
+        'nunito': ['Nunito', 'sans-serif'],
+        sans: ['Nunito', 'system-ui', 'sans-serif'],
       },
       colors: {
+        // Custom color palette
+        slate: {
+          900: '#0F172A', // Primary Background
+        },
+        gray: {
+          300: '#E2E8F0', // Primary Text (Off-White)
+          500: '#64748B', // Secondary Text / Borders (Muted Gray)
+        },
+        blue: {
+          400: '#38BDF8', // Accent / Brand (Electric Blue)
+        },
+        cyan: {
+          400: '#22D3EE', // Hover / Interaction (Bright Cyan)
+        },
+        // Legacy primary colors (keeping for compatibility)
         primary: {
           50: '#f0f9ff',
           500: '#3b82f6',

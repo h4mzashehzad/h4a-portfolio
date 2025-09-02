@@ -90,24 +90,51 @@ xl: 1280px  /* Extra large devices */
 2xl: 1536px /* 2X Extra large devices */
 ```
 
-### Custom Utilities
+### Custom Theme
 
-The project includes custom utilities defined in `tailwind.config.js`:
+The project includes a custom design system defined in `tailwind.config.js`:
 
-- **Custom Colors**: Primary color palette
-- **Custom Animations**: Fade-in and slide-up animations
-- **Custom Fonts**: Inter font family
+#### 🎨 Color Palette
+
+- **Primary Background**: `#0F172A` (slate-900) - Deep slate for main backgrounds
+- **Primary Text**: `#E2E8F0` (gray-300) - Off-white for primary text content
+- **Accent/Brand**: `#38BDF8` (blue-400) - Electric blue for brand elements
+- **Secondary Text**: `#64748B` (gray-500) - Muted gray for secondary text and borders
+- **Hover/Interaction**: `#22D3EE` (cyan-400) - Bright cyan for interactive states
+
+#### 🔤 Typography
+
+- **Bebas Neue**: Used for hero text, main headings, and display typography
+- **Nunito**: Used for body text, navigation, and general content
+- **Font Loading**: Optimized with `font-display: swap` for better performance
+
+#### ✨ Custom Animations
+
+- **Fade-in**: Smooth opacity transition (0.5s ease-in-out)
+- **Slide-up**: Upward slide with fade effect (0.5s ease-out)
 
 ## 🎯 Project Structure
 
 ```
 src/
-├── components/     # Reusable UI components
-├── assets/        # Static assets (images, icons)
-├── App.tsx        # Main application component
-├── main.tsx       # Application entry point
-└── index.css      # Global styles with Tailwind imports
+├── components/          # Reusable UI components
+├── assets/
+│   └── fonts/          # Custom font files (Bebas Neue, Nunito)
+├── App.tsx             # Main application component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles with Tailwind imports and font declarations
 ```
+
+### Font Setup
+
+Custom fonts are loaded via `@font-face` declarations in `src/index.css`:
+
+- **Bebas Neue Regular** - For headings and display text
+- **Nunito** (Regular, Medium, SemiBold, Bold, Light) - For body text and UI elements
+
+Fonts are configured in Tailwind with utility classes:
+- `font-bebas` - Apply Bebas Neue font family
+- `font-nunito` - Apply Nunito font family
 
 ## 🚀 Deployment
 

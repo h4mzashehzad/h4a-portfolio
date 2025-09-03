@@ -12,12 +12,26 @@ export default {
         sans: ['Nunito', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Custom color palette
+        // Custom color palette - Reversed theme
+        background: {
+          primary: '#F8FAFC', // Primary Background (Off-White)
+          secondary: '#F1F5F9', // Secondary Background
+        },
+        text: {
+          primary: '#0F172A', // Primary Text (Slate)
+          secondary: '#64748B', // Secondary Text (Muted Gray)
+          muted: '#94A3B8', // Muted Text
+        },
         slate: {
-          900: '#0F172A', // Primary Background
+          900: '#0F172A', // Primary Text (Slate)
+          700: '#334155',
+          500: '#64748B',
+          300: '#CBD5E1',
         },
         gray: {
-          300: '#E2E8F0', // Primary Text (Off-White)
+          50: '#F8FAFC', // Off-White Background
+          100: '#F1F5F9',
+          300: '#E2E8F0',
           500: '#64748B', // Secondary Text / Borders (Muted Gray)
         },
         blue: {

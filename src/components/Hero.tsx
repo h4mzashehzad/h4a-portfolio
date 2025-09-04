@@ -15,7 +15,7 @@ export default function Hero() {
           animate="visible"
         >
           <motion.span variants={itemFade} className="mb-2 font-mono text-sm text-slate-400">
-            &gt; hello-world <span className="text-slate-500">// developer portfolio</span>
+            &gt; import Innovation <span className="text-slate-500">// from developer portfolio</span>
           </motion.span>
           <motion.h1
             variants={fadeInUp}
@@ -24,27 +24,27 @@ export default function Hero() {
             Hamza Shehzad
           </motion.h1>
           <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300">
-            Full‑stack engineer crafting resilient, fast, and accessible web apps.
-            Focused on TypeScript, React, and modern tooling.
+            Full‑stack engineer specializing in cross-platform mobile app 
+            development and web app development.
           </motion.p>
 
           <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap items-center gap-2">
             <motion.div variants={itemFade}>
-              <Badge variant="mono">TypeScript</Badge>
+              <Badge variant="mono">React Native</Badge>
             </motion.div>
             <motion.div variants={itemFade}>
-              <Badge variant="mono">React</Badge>
+              <Badge variant="mono">TypeScript</Badge>
             </motion.div>
             <motion.div variants={itemFade}>
               <Badge variant="mono">Vite</Badge>
             </motion.div>
             <motion.div variants={itemFade}>
-              <Badge variant="mono">Node.js</Badge>
+              <Badge variant="mono">Next.js</Badge>
             </motion.div>
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mt-7 flex flex-wrap gap-3">
-            <Button leftIcon={Mail} onClick={() => (window.location.href = 'mailto:hamza@')}>
+            <Button leftIcon={Mail} onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')}>
               Contact
             </Button>
             <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer">

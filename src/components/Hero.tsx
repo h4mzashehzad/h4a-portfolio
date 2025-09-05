@@ -92,14 +92,14 @@ export default function Hero() {
                 <Mail className="mr-2 h-4 w-4" />
                 Contact
               </Button>
-              <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer">
+              <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer" className="cursor-pointer">
                 <Button>
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
               </a>
             </div>
-            <a href="https://www.linkedin.com/in/hamzashehzadpk" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/hamzashehzadpk" target="_blank" rel="noreferrer" className="cursor-pointer">
               <Button>
                 <Linkedin className="mr-2 h-4 w-4" />
                 LinkedIn

@@ -26,7 +26,7 @@ export function ProjectCard({ title, description, stack, href, repo }: ProjectCa
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="text-slate-400 transition-colors hover:text-slate-200"
+              className="text-slate-400 transition-colors hover:text-slate-200 cursor-pointer"
               aria-label="Open live demo"
             >
               <ExternalLink className="size-4" />
@@ -37,7 +37,7 @@ export function ProjectCard({ title, description, stack, href, repo }: ProjectCa
               href={repo}
               target="_blank"
               rel="noreferrer"
-              className="text-slate-400 transition-colors hover:text-slate-200"
+              className="text-slate-400 transition-colors hover:text-slate-200 cursor-pointer"
               aria-label="Open GitHub repo"
             >
               <Github className="size-4" />

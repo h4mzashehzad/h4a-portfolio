@@ -29,7 +29,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '0px 0px -20% 0px' }}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 inline-block bg-gradient-to-br from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight underline decoration-white/10 underline-offset-[10px] hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60"
+          className="mt-6 inline-block bg-gradient-to-br from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight underline decoration-white/10 underline-offset-[10px] hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 cursor-pointer"
         >
           hi@h4a.dev
         </motion.a>
@@ -47,18 +47,18 @@ export default function Footer() {
               href="https://github.com/h4mzashehzad"
               target="_blank"
               rel="noreferrer"
-              className="text-white/60 hover:text-white/90 transition-colors"
+              className="text-white/60 hover:text-white/90 transition-colors cursor-pointer"
               aria-label="GitHub"
             >
               <Github className="size-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/hamzashehzadpk"
-              target="_blank"
-              rel="noreferrer"
-              className="text-white/60 hover:text-white/90 transition-colors"
-              aria-label="LinkedIn"
-            >
+               href="https://www.linkedin.com/in/hamzashehzadpk"
+               target="_blank"
+               rel="noreferrer"
+               className="text-white/60 hover:text-white/90 transition-colors cursor-pointer"
+               aria-label="LinkedIn"
+             >
               <Linkedin className="size-5" />
             </a>
           </nav>

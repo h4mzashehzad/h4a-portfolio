@@ -27,6 +27,7 @@ const DownloadResumeButton: React.FC<DownloadResumeButtonProps> = ({ className =
         rounded-lg transition-all duration-200 ease-in-out
         hover:shadow-lg hover:shadow-slate-900/20
         active:scale-95
+        cursor-pointer
         ${className}
       `}
     >

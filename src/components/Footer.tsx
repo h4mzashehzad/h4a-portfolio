@@ -18,7 +18,7 @@ export default function Footer() {
             <Github className="size-4" />
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/hamzashehzadpk"
             target="_blank"
             rel="noreferrer"
             className="text-slate-400 transition-colors hover:text-slate-200"

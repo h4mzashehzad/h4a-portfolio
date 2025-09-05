@@ -3,17 +3,49 @@ import { Github, Mail } from 'lucide-react'
 import { Button } from './ui/Button'
 import { Badge } from './ui/Badge'
 import { fadeInUp, itemFade, staggerContainer } from '../lib/animations'
+import ProfileCard from './ProfileCard'
+import LogoLoop from './LogoLoop'
+import DotGrid from './DotGrid'
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiGithub, SiPrisma, SiSupabase, SiVite } from 'react-icons/si'
 
 export default function Hero() {
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiVercel />, title: "Vercel", href: "https://vercel.com" },
+    { node: <SiGithub />, title: "Github", href: "https://github.com" },
+    { node: <SiPrisma />, title: "Prisma", href: "https://prisma.io" },
+    { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
+    { node: <SiVite />, title: "Vite", href: "https://vite.dev" }
+  ];
+
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="flex min-h-[70vh] flex-col items-start justify-center py-16"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
+      {/* DotGrid Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <DotGrid
+          dotSize={5}
+          gap={15}
+          baseColor="#010101"
+          activeColor="#5227FF"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid min-h-[70vh] grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16">
+          <motion.div
+            className="flex flex-col items-start justify-center"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
           <motion.span variants={itemFade} className="mb-2 font-mono text-sm text-slate-400">
             &gt; import Innovation <span className="text-slate-500">// from developer portfolio</span>
           </motion.span>
@@ -53,7 +85,34 @@ export default function Hero() {
               </Button>
             </a>
           </motion.div>
-        </motion.div>
+          </motion.div>
+          
+          {/* Profile Card Column */}
+          <motion.div
+            className="flex justify-center lg:justify-end"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <ProfileCard />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Technology Logo Loop */}
+      <div className="pb-12">
+        <LogoLoop
+          logos={techLogos}
+          speed={120}
+          direction="left"
+          logoHeight={48}
+          gap={40}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#0f172a"
+          ariaLabel="Technology partners"
+        />
       </div>
 
       {/* Optional: place for animated background from React Bits if added later */}

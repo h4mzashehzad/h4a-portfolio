@@ -1,33 +1,78 @@
 import { motion } from 'framer-motion'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/Accordion'
-import { ResumeTimeline, type TimelineItem } from './timeline/ResumeTimeline'
+import { Timeline } from './timeline/timeline'
 import { ProjectCard, type ProjectCardProps } from './cards/ProjectCard'
 import { Badge } from './ui/Badge'
-import { Button } from './ui/Button'
-import { Download } from 'lucide-react'
 import { staggerContainer, itemFade } from '../lib/animations'
 
 export default function Collapsible() {
-  const timeline: TimelineItem[] = [
+  const timelineData = [
     {
-      company: 'Acme Inc.',
-      role: 'Senior Frontend Engineer',
-      period: '2023 — Present',
-      bullets: [
-        'Led migration to React 18 + Vite with code-splitting and prefetching.',
-        'Built UI kit with composable primitives and motion-driven interactions.',
-      ],
-      stack: ['TypeScript', 'React', 'Vite', 'Tailwind', 'Framer Motion'],
+      title: '2023 — Present',
+      content: (
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold text-slate-200">Senior Frontend Engineer</h3>
+            <p className="text-slate-400">@ Acme Inc.</p>
+          </div>
+          <ul className="list-disc space-y-2 pl-5 text-slate-300">
+            <li>Led migration to React 18 + Vite with code-splitting and prefetching.</li>
+            <li>Built UI kit with composable primitives and motion-driven interactions.</li>
+          </ul>
+          <div className="flex flex-wrap gap-2">
+            {['TypeScript', 'React', 'Vite', 'Tailwind', 'Framer Motion'].map((tech) => (
+              <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
     },
     {
-      company: 'Globex',
-      role: 'Full‑stack Engineer',
-      period: '2021 — 2023',
-      bullets: [
-        'Shipped SSR features and optimized TTFB for key customer flows.',
-        'Implemented CI checks and tightened Lighthouse performance budgets.',
-      ],
-      stack: ['Node.js', 'PostgreSQL', 'Playwright'],
+      title: '2021 — 2023',
+      content: (
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold text-slate-200">Full‑stack Engineer</h3>
+            <p className="text-slate-400">@ Globex</p>
+          </div>
+          <ul className="list-disc space-y-2 pl-5 text-slate-300">
+            <li>Shipped SSR features and optimized TTFB for key customer flows.</li>
+            <li>Implemented CI checks and tightened Lighthouse performance budgets.</li>
+          </ul>
+          <div className="flex flex-wrap gap-2">
+            {['Node.js', 'PostgreSQL', 'Playwright'].map((tech) => (
+              <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: '2019 — 2021',
+      content: (
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold text-slate-200">Frontend Developer</h3>
+            <p className="text-slate-400">@ StartupXYZ</p>
+          </div>
+          <ul className="list-disc space-y-2 pl-5 text-slate-300">
+            <li>Developed responsive web applications using modern JavaScript frameworks.</li>
+            <li>Collaborated with design team to implement pixel-perfect UI components.</li>
+            <li>Optimized application performance and improved user experience metrics.</li>
+          </ul>
+          <div className="flex flex-wrap gap-2">
+            {['JavaScript', 'Vue.js', 'SCSS', 'Webpack'].map((tech) => (
+              <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
     },
   ]
 
@@ -65,23 +110,13 @@ export default function Collapsible() {
 
   return (
     <section className="relative bg-slate-950">
-      <div className="container mx-auto px-4">
+      <div className="w-full">
         <Accordion type="single" collapsible className="divide-y divide-slate-800">
           {/* Resume */}
           <AccordionItem value="resume">
             <AccordionTrigger subtitle="Experience, roles, highlights">Resume</AccordionTrigger>
             <AccordionContent>
-              <div className="mb-4 flex items-center justify-between">
-                <p className="text-sm text-slate-400">Recent positions and impact.</p>
-                <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                  <Button variant="ghost" leftIcon={Download}>
-                    Download PDF
-                  </Button>
-                </a>
-              </div>
-              <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <ResumeTimeline items={timeline} />
-              </motion.div>
+              <Timeline data={timelineData} />
             </AccordionContent>
           </AccordionItem>
 

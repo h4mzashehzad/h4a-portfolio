@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
-import { Github, Mail } from 'lucide-react'
-import { Button } from './ui/Button'
+import { Github, Mail, Linkedin } from 'lucide-react'
+import { Button } from './ui/neon-button'
 import { Badge } from './ui/Badge'
 import { fadeInUp, itemFade, staggerContainer } from '../lib/animations'
-import ProfileCard from './ProfileCard'
-import LogoLoop from './LogoLoop'
-import DotGrid from './DotGrid'
+import ProfileCard from './ui/ProfileCard'
+import LogoLoop from './ui/LogoLoop'
+import DotGrid from './ui/DotGrid'
+import DownloadResumeButton from './ui/DownloadResumeButton'
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiGithub, SiPrisma, SiSupabase, SiVite } from 'react-icons/si'
 
 export default function Hero() {
@@ -23,6 +24,16 @@ export default function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900">
+      {/* Download Resume Button - Top Right */}
+      <motion.div 
+        className="absolute top-6 right-6 z-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        <DownloadResumeButton />
+      </motion.div>
+      
       {/* DotGrid Background */}
       <div className="absolute inset-0 w-full h-full">
         <DotGrid
@@ -39,16 +50,14 @@ export default function Hero() {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid min-h-[70vh] grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16">
+        <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16">
           <motion.div
             className="flex flex-col items-start justify-center"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
-          <motion.span variants={itemFade} className="mb-2 font-mono text-sm text-slate-400">
-            &gt; import Innovation <span className="text-slate-500">// from developer portfolio</span>
-          </motion.span>
+        
           <motion.h1
             variants={fadeInUp}
             className="text-pretty text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl"
@@ -56,8 +65,10 @@ export default function Hero() {
             Hamza Shehzad
           </motion.h1>
           <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300">
-            Full‑stack engineer specializing in cross-platform mobile app 
-            development and web app development.
+            Results driven full‑stack developer with 2+ years of hands-on experience. 
+            Specializing in delivering scalable and performing cross-platform mobile apps and
+            responsive web apps. Proven track record of delivering high quality products 
+            with a focus on user experience and performance.
           </motion.p>
 
           <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap items-center gap-2">
@@ -75,16 +86,97 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="mt-7 flex flex-wrap gap-3">
-            <Button leftIcon={Mail} onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')}>
-              Contact
-            </Button>
-            <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer">
-              <Button variant="ghost" leftIcon={Github}>
-                GitHub
+          <motion.div variants={fadeInUp} className="mt-7 flex flex-col items-center gap-3">
+            <div className="flex flex-wrap gap-3">
+              <Button onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')}>
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
+              </Button>
+              <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer">
+                <Button>
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Button>
+              </a>
+            </div>
+            <a href="https://www.linkedin.com/in/hamzashehzadpk" target="_blank" rel="noreferrer">
+              <Button>
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
               </Button>
             </a>
           </motion.div>
+
+          {/* Enhanced Scroll indicator */}
+            <motion.div 
+              variants={fadeInUp} 
+              className="mt-16 flex flex-col items-center space-y-4"
+            >
+              <motion.div 
+                className="group cursor-pointer select-none"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+              >
+                <div className="relative">
+                  {/* Glowing background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-xl"
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Main content */}
+                  <div className="relative px-6 py-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-full">
+                    <div className="flex items-center gap-3 text-slate-300 text-sm font-medium">
+                      <span className="tracking-wide">Explore My Work</span>
+                      
+                      {/* Animated arrow with trail effect */}
+                      <div className="relative">
+                        <motion.div
+                          className="text-lg"
+                          animate={{ y: [0, 6, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          ↓
+                        </motion.div>
+                        
+                        {/* Trail dots */}
+                        {[0, 1, 2].map((i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute left-1/2 w-1 h-1 bg-blue-400 rounded-full transform -translate-x-1/2"
+                            style={{ top: `${(i + 1) * 8}px` }}
+                            animate={{ 
+                              opacity: [0, 0.8, 0],
+                              scale: [0.5, 1, 0.5]
+                            }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity, 
+                              ease: "easeInOut",
+                              delay: i * 0.2
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Hover hint */}
+                <motion.div 
+                  className="mt-2 text-xs text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  Click to scroll
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </motion.div>
           
           {/* Profile Card Column */}
@@ -97,22 +189,29 @@ export default function Hero() {
             <ProfileCard />
           </motion.div>
         </div>
-      </div>
-
-      {/* Technology Logo Loop */}
-      <div className="pb-12">
-        <LogoLoop
-          logos={techLogos}
-          speed={120}
-          direction="left"
-          logoHeight={48}
-          gap={40}
-          pauseOnHover
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#0f172a"
-          ariaLabel="Technology partners"
-        />
+        
+        {/* Technology Logo Loop - positioned at bottom of hero */}
+        <motion.div 
+          className="absolute bottom-8 left-0 right-0 px-4"
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 1.2 }}
+        >
+          <LogoLoop
+            logos={techLogos}
+            speed={120}
+            direction="left"
+            logoHeight={40}
+            gap={32}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#0f172a"
+            ariaLabel="Technology stack"
+            className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+          />
+        </motion.div>
       </div>
 
       {/* Optional: place for animated background from React Bits if added later */}

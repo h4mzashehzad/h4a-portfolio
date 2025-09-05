@@ -17,7 +17,7 @@ export default function ProfileCard() {
       {/* Profile image covering full card */}
       <div className="relative z-10 h-full w-full">
         <img
-          src="/src/assets/hero_frontal_self.png"
+          src="/hero_frontal_self.png"
           alt="Hamza Shehzad"
           className="h-full w-full object-cover rounded-3xl"
         />

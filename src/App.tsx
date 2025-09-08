@@ -2,6 +2,7 @@ import Hero from './components/Hero'
 import Collapsible from './components/Collapsible'
 import Footer from './components/Footer'
 import { RightClickProvider } from './contexts/RightClickContext'
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <Collapsible />
       <Footer />
+      <Analytics />
     </RightClickProvider>
   )
 }

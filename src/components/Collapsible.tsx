@@ -81,22 +81,22 @@ export default function Collapsible() {
       title: 'Portfolio Starter',
       description: 'Dark-first, motion-polished portfolio template with accessible primitives.',
       stack: ['React', 'Tailwind', 'Radix', 'Motion'],
+      image: '/Projects/project1.png',
       href: '#',
-      repo: 'https://github.com/h4mzashehzad',
     },
     {
       title: 'API Dashboard',
       description: 'Live usage analytics with charts, filters, and role-based access control.',
       stack: ['TypeScript', 'Vite', 'Charts'],
+      image: '/Projects/project2.png',
       href: '#',
-      repo: '#',
     },
     {
       title: 'Design Tokens',
       description: 'Cross-platform design tokens pipeline powering theming and accessibility.',
       stack: ['Tokens', 'CI/CD', 'Theming'],
+      image: '/Projects/project3.png',
       href: '#',
-      repo: '#',
     },
   ]
 

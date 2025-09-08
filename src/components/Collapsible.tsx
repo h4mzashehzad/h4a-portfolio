@@ -2,10 +2,14 @@ import { motion } from 'framer-motion'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/Accordion'
 import { Timeline } from './timeline/timeline'
 import { ProjectCard, type ProjectCardProps } from './cards/ProjectCard'
-import { Badge } from './ui/Badge'
+import AboutMe from './AboutMe'
+import { ProjectModal } from './ProjectModal'
+import { ProjectModalProvider, useProjectModal } from '../contexts/ProjectModalContext'
 import { staggerContainer, itemFade } from '../lib/animations'
 
-export default function Collapsible() {
+function PortfolioContent() {
+  const { isOpen, project, images, showLiveButton, closeModal } = useProjectModal()
+
   const timelineData = [
     {
       title: '2023 — Present',
@@ -82,7 +86,14 @@ export default function Collapsible() {
       description: 'Dark-first, motion-polished portfolio template with accessible primitives.',
       stack: ['React', 'Tailwind', 'Radix', 'Motion'],
       image: '/Projects/project1.png',
-      href: '#',
+      href: 'https://www.aurazemedia.com',
+      images: [
+        '/Projects/auraze-media/1.png',
+        '/Projects/auraze-media/2.png', 
+        '/Projects/auraze-media/3.png',
+        '/Projects/auraze-media/4.png',
+      ], // Add your project images here: ['/Projects/project1-1.png', '/Projects/project1-2.png']
+      showLiveButton: false
     },
     {
       title: 'API Dashboard',
@@ -90,6 +101,8 @@ export default function Collapsible() {
       stack: ['TypeScript', 'Vite', 'Charts'],
       image: '/Projects/project2.png',
       href: '#',
+      images: [], // Add your project images here: ['/Projects/project2-1.png', '/Projects/project2-2.png']
+      showLiveButton: true
     },
     {
       title: 'Design Tokens',
@@ -97,84 +110,71 @@ export default function Collapsible() {
       stack: ['Tokens', 'CI/CD', 'Theming'],
       image: '/Projects/project3.png',
       href: '#',
+      images: [], // Add your project images here: ['/Projects/project3-1.png', '/Projects/project3-2.png']
+      showLiveButton: false // Example: hiding live button for this project
     },
   ]
 
-  const nowList = [
-    'Exploring Motion patterns for complex UIs',
-    'Deepening TypeScript ergonomics for DX',
-    'Shipping small OSS utilities',
-  ]
-
-  const skills = ['React', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion', 'Radix UI']
-
   return (
-    <section className="relative bg-slate-950">
-      <div className="w-full">
-        <Accordion type="single" collapsible className="divide-y divide-slate-800">
-          {/* Resume */}
-          <AccordionItem value="resume">
-            <AccordionTrigger subtitle="Experience, roles, highlights">Resume</AccordionTrigger>
-            <AccordionContent>
-              <Timeline data={timelineData} />
-            </AccordionContent>
-          </AccordionItem>
+    <>
+      <section className="relative bg-slate-950">
+        <div className="w-full">
+          <Accordion type="single" collapsible className="divide-y divide-slate-800">
+            {/* Resume */}
+            <AccordionItem value="resume">
+              <AccordionTrigger subtitle="Experience, roles, highlights">Resume</AccordionTrigger>
+              <AccordionContent>
+                <Timeline data={timelineData} />
+              </AccordionContent>
+            </AccordionItem>
 
-          {/* Portfolio */}
-          <AccordionItem value="portfolio">
-            <AccordionTrigger subtitle="Selected work with code and demos">Portfolio</AccordionTrigger>
-            <AccordionContent>
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-                className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                {projects.map((p, i) => (
-                  <motion.div key={i} variants={itemFade}>
-                    <ProjectCard {...p} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AccordionContent>
-          </AccordionItem>
+            {/* Portfolio */}
+            <AccordionItem value="portfolio">
+              <AccordionTrigger subtitle="Selected work with code and demos">Portfolio</AccordionTrigger>
+              <AccordionContent>
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+                  className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 pt-4"
+                >
+                  {projects.map((p, i) => (
+                    <motion.div key={i} variants={itemFade}>
+                      <ProjectCard {...p} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AccordionContent>
+            </AccordionItem>
 
-          {/* About Me */}
-          <AccordionItem value="about">
-            <AccordionTrigger subtitle="A quick snapshot and what I’m up to">About Me</AccordionTrigger>
-            <AccordionContent>
-              <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <motion.p variants={itemFade} className="max-w-2xl text-slate-300">
-                  I build resilient, accessible, and fast web apps. I enjoy systemizing UI with composable primitives
-                  and motion that supports understanding. Always learning, always shipping.
-                </motion.p>
+            {/* About Me */}
+            <AccordionItem value="about">
+              <AccordionTrigger subtitle="A quick snapshot and what I'm up to">About Me</AccordionTrigger>
+              <AccordionContent>
+                <AboutMe />
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+      
+      {/* Project Modal */}
+      <ProjectModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        project={project}
+        images={images}
+        showLiveButton={showLiveButton}
+      />
+    </>
+  )
+}
 
-                <div className="mt-5 grid gap-6 sm:grid-cols-2">
-                  <motion.div variants={itemFade}>
-                    <h4 className="mb-2 font-mono text-sm text-slate-400">Now</h4>
-                    <ul className="list-disc space-y-1 pl-4 text-sm text-slate-300">
-                      {nowList.map((n) => (
-                        <li key={n}>{n}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                  <motion.div variants={itemFade}>
-                    <h4 className="mb-2 font-mono text-sm text-slate-400">Skills</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.map((s) => (
-                        <Badge key={s} variant="mono">
-                          {s}
-                        </Badge>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
-    </section>
+export default function Collapsible() {
+  return (
+    <ProjectModalProvider>
+      <PortfolioContent />
+    </ProjectModalProvider>
   )
 }

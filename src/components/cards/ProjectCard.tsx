@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Badge } from '../ui/Badge'
 import { hoverLift, itemFade } from '../../lib/animations'
+import { useProjectModal } from '../../contexts/ProjectModalContext'
 
 export interface ProjectCardProps {
   title: string
@@ -8,18 +9,32 @@ export interface ProjectCardProps {
   stack: string[]
   image?: string
   href?: string
+  images?: string[] // Array of images for the modal
+  showLiveButton?: boolean // Option to show/hide live website button
 }
 
-export function ProjectCard({ title, description, stack, image, href }: ProjectCardProps) {
+export function ProjectCard({ 
+  title, 
+  description, 
+  stack, 
+  image, 
+  href, 
+  images = [], 
+  showLiveButton = true 
+}: ProjectCardProps) {
+  const { openModal } = useProjectModal()
+
   const handleClick = () => {
-    if (href) {
-      window.open(href, '_blank', 'noopener,noreferrer')
-    }
+    openModal(
+      { title, description, stack, image, href },
+      images,
+      showLiveButton
+    )
   }
 
   return (
     <motion.article
-      className={`group relative overflow-hidden rounded-xl border border-slate-800/80 bg-gradient-to-br from-slate-900/90 to-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:border-slate-600/80 hover:shadow-xl hover:shadow-slate-900/20 ${href ? 'cursor-pointer' : ''}`}
+      className="group relative overflow-hidden rounded-xl border border-slate-800/80 bg-gradient-to-br from-slate-900/90 to-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:border-slate-600/80 hover:shadow-xl hover:shadow-slate-900/20 cursor-pointer"
       {...hoverLift(6)}
       variants={itemFade}
       onClick={handleClick}

@@ -84,7 +84,7 @@ function PortfolioContent() {
     },
     {
       title: 'Domain Marketplace App',
-      description: 'A sleek, minimal React Native domain marketplace app dedicated to .pk domains.',
+      description: 'A sleek and minimal React Native domain marketplace app dedicated only to .pk domains.',
       stack: ['React Native', 'Expo', 'MySQL', 'Axios'],
       image: '/Projects/pk-domains/main.png',
       href: '#',

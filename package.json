@@ -13,6 +13,7 @@
     "@fontsource/geist-mono": "^5.2.6",
     "@fontsource/geist-sans": "^5.2.5",
     "@fontsource/lexend": "^5.2.9",
+    "@formspree/react": "^3.0.0",
     "@radix-ui/react-accordion": "^1.2.12",
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",

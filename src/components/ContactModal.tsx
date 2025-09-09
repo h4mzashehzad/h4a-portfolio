@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Mail, User, Phone, MessageSquare, Shield } from 'lucide-react'
 import { Button } from './ui/Button'
 import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -9,6 +10,7 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  const [state, handleFormspreeSubmit] = useForm("mqadnkev")
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,7 +30,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     
     // Validate captcha
@@ -38,9 +40,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
     
     setCaptchaError('')
-    // Form submission logic would go here
-    console.log('Form submitted:', formData)
-    onClose()
+    
+    // Submit to Formspree
+    await handleFormspreeSubmit(e)
+    
+    // Close modal after successful submission
+    if (state.succeeded) {
+      onClose()
+    }
   }
 
   return (
@@ -96,6 +103,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="relative p-6 pt-2 space-y-4">
+              {/* Success Message */}
+              {state.succeeded && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 text-center"
+                >
+                  <p className="text-green-400 font-medium">Thanks for your message! I'll get back to you soon.</p>
+                </motion.div>
+              )}
               {/* Name Field */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -117,6 +134,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-200"
                     placeholder="Your name"
+                  />
+                  <ValidationError 
+                    prefix="Name" 
+                    field="name"
+                    errors={state.errors}
+                    className="text-red-400 text-sm mt-1"
                   />
                 </div>
               </motion.div>
@@ -143,6 +166,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-200"
                     placeholder="email@example.com"
                   />
+                  <ValidationError 
+                    prefix="Email" 
+                    field="email"
+                    errors={state.errors}
+                    className="text-red-400 text-sm mt-1"
+                  />
                 </div>
               </motion.div>
 
@@ -166,6 +195,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-200"
                     placeholder="+1 (555) 123-4567"
+                  />
+                  <ValidationError 
+                    prefix="Phone" 
+                    field="phone"
+                    errors={state.errors}
+                    className="text-red-400 text-sm mt-1"
                   />
                 </div>
               </motion.div>
@@ -191,6 +226,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all duration-200 resize-none"
                     placeholder="Tell me about your project or just say hello!"
+                  />
+                  <ValidationError 
+                    prefix="Message" 
+                    field="message"
+                    errors={state.errors}
+                    className="text-red-400 text-sm mt-1"
                   />
                 </div>
               </motion.div>
@@ -243,9 +284,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <Button
                   type="submit"
                   className="w-full px-4 py-3 text-base font-medium bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 border-transparent transition-all duration-200 cursor-pointer"
+                  disabled={state.submitting}
                 >
                   <Mail className="mr-2 h-4 w-4" />
-                  Send Message
+                  {state.submitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </motion.div>
             </form>

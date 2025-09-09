@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://h4a.dev/sitemap.xml
+
+# Host
+Host: https://h4a.dev

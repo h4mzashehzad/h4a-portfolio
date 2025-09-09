@@ -9,6 +9,7 @@ import LogoLoop from './ui/LogoLoop'
 import DotGrid from './ui/DotGrid'
 import DownloadResumeButton from './ui/DownloadResumeButton'
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiGithub, SiPrisma, SiSupabase, SiVite } from 'react-icons/si'
+import TrueFocus from './TrueFocus'
 
 export default function Hero() {
   const { openModal } = useContactModal()
@@ -63,12 +64,19 @@ export default function Hero() {
             animate="visible"
           >
         
-          <motion.h1
+          <motion.div
             variants={fadeInUp}
             className="text-pretty text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-100 text-center lg:text-left"
           >
-            Hamza Shehzad
-          </motion.h1>
+            <TrueFocus 
+              sentence="Hamza Shehzad" 
+              manualMode={false} 
+              blurAmount={5} 
+              borderColor="#5227FF" 
+              animationDuration={1} 
+              pauseBetweenAnimations={1} 
+            />
+          </motion.div>
           <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300 text-left text-sm sm:text-base">
             Results driven full‑stack developer with 2+ years of hands-on experience. 
             Specializing in delivering scalable and performing cross-platform mobile apps and

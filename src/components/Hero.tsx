@@ -3,6 +3,7 @@ import { Github, Mail, Linkedin } from 'lucide-react'
 import { Button } from './ui/neon-button'
 import { Badge } from './ui/Badge'
 import { fadeInUp, itemFade, staggerContainer } from '../lib/animations'
+import { useContactModal } from '../contexts/ContactModalContext'
 import ProfileCard from './ui/ProfileCard'
 import LogoLoop from './ui/LogoLoop'
 import DotGrid from './ui/DotGrid'
@@ -10,6 +11,8 @@ import DownloadResumeButton from './ui/DownloadResumeButton'
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiGithub, SiPrisma, SiSupabase, SiVite } from 'react-icons/si'
 
 export default function Hero() {
+  const { openModal } = useContactModal()
+  
   const techLogos = [
     { node: <SiReact />, title: "React", href: "https://react.dev" },
     { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
@@ -90,7 +93,7 @@ export default function Hero() {
 
           <motion.div variants={fadeInUp} className="mt-7 flex flex-col items-center gap-3">
             <div className="flex justify-center items-center gap-2 sm:gap-3 sm:flex-wrap">
-              <Button onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')} className="px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base">
+              <Button onClick={openModal} className="px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base">
                 <Mail className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
                 Contact
               </Button>

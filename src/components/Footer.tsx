@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin } from 'lucide-react'
+import { useContactModal } from '../contexts/ContactModalContext'
 
 export default function Footer() {
+  const { openModal } = useContactModal()
+  
   return (
     <footer className="relative isolate bg-black text-white overflow-hidden">
       {/* Top accent line */}
@@ -22,17 +25,17 @@ export default function Footer() {
           Let's build something cool!
         </motion.h2>
 
-        <motion.a
-          href="mailto:hi@h4a.dev"
-          aria-label="Email Hamza at hi@h4a.dev"
+        <motion.button
+          onClick={openModal}
+          aria-label="Open contact form"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '0px 0px -10% 0px' }}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 inline-block bg-gradient-to-br from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight underline decoration-white/10 underline-offset-[10px] hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 cursor-pointer"
+          className="mt-6 inline-block bg-gradient-to-br from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight underline decoration-white/10 underline-offset-[10px] hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 cursor-pointer transition-all duration-200"
         >
           hi@h4a.dev
-        </motion.a>
+        </motion.button>
       </div>
 
       {/* Minimal bottom bar */}

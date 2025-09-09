@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Badge } from '../ui/Badge'
 import { hoverLift, itemFade } from '../../lib/animations'
 import { useProjectModal } from '../../contexts/ProjectModalContext'
+import { Eye } from 'lucide-react'
 
 export interface ProjectCardProps {
   title: string
@@ -39,6 +40,10 @@ export function ProjectCard({
       variants={itemFade}
       onClick={handleClick}
     >
+      {/* Click indicator for mobile */}
+      <div className="absolute top-3 right-3 z-10 p-2 bg-black/60 rounded-full transition-all duration-200 md:opacity-0 md:group-hover:opacity-100">
+        <Eye className="w-4 h-4 text-white" />
+      </div>
       {/* Image Section */}
       {image && (
         <div className="relative h-85 w-full overflow-hidden">

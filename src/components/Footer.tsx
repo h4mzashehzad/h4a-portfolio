@@ -27,7 +27,7 @@ export default function Footer() {
           aria-label="Email Hamza at hi@h4a.dev"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '0px 0px -20% 0px' }}
+          viewport={{ once: true, margin: '0px 0px -10% 0px' }}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 inline-block bg-gradient-to-br from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight underline decoration-white/10 underline-offset-[10px] hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/60 cursor-pointer"
         >

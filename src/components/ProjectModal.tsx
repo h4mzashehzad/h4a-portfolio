@@ -86,7 +86,8 @@ export function ProjectModal({
                     {images.map((image, index) => (
                       <div
                         key={index}
-                        className="relative overflow-hidden rounded-lg bg-slate-800/30 border border-slate-700/30 group"
+                        className="relative overflow-hidden rounded-lg bg-slate-800/30 border border-slate-700/30 group cursor-pointer"
+                        onClick={() => setSelectedImage(image)}
                       >
                         <img
                           src={image}
@@ -94,13 +95,10 @@ export function ProjectModal({
                           className="w-full h-full object-cover"
                         />
                         
-                        {/* Preview button */}
-                        <button
-                          onClick={() => setSelectedImage(image)}
-                          className="absolute bottom-2 right-2 p-2 bg-black/60 hover:bg-black/80 rounded-full transition-colors duration-200 opacity-0 group-hover:opacity-100 cursor-pointer"
-                        >
+                        {/* Preview button - visible on mobile, hover on desktop */}
+                        <div className="absolute bottom-2 right-2 p-2 bg-black/60 rounded-full transition-all duration-200 md:opacity-0 md:group-hover:opacity-100">
                           <Eye className="w-4 h-4 text-white" />
-                        </button>
+                        </div>
                       </div>
                     ))}
                   </div>

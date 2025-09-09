@@ -26,12 +26,14 @@ export default function Hero() {
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900">
       {/* Download Resume Button - Top Right */}
       <motion.div 
-        className="absolute top-6 right-6 z-20"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 lg:top-6 lg:right-6 z-20"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
       >
-        <DownloadResumeButton />
+        <div className="scale-75 sm:scale-90 lg:scale-100">
+          <DownloadResumeButton />
+        </div>
       </motion.div>
       
       {/* DotGrid Background */}
@@ -49,10 +51,10 @@ export default function Hero() {
         />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-16 sm:py-20 lg:py-16 pb-20 sm:pb-24 lg:pb-16">
           <motion.div
-            className="flex flex-col items-start justify-center"
+            className="flex flex-col items-start justify-center order-2 lg:order-1"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -60,18 +62,18 @@ export default function Hero() {
         
           <motion.h1
             variants={fadeInUp}
-            className="text-pretty text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl"
+            className="text-pretty text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-100 text-center lg:text-left"
           >
             Hamza Shehzad
           </motion.h1>
-          <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300">
+          <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300 text-left text-sm sm:text-base">
             Results driven full‑stack developer with 2+ years of hands-on experience. 
             Specializing in delivering scalable and performing cross-platform mobile apps and
             responsive web apps. Proven track record of delivering high quality products 
             with a focus on user experience and performance.
           </motion.p>
 
-          <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap items-center gap-2">
+          <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
             <motion.div variants={itemFade}>
               <Badge variant="mono">React Native</Badge>
             </motion.div>
@@ -87,30 +89,30 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mt-7 flex flex-col items-center gap-3">
-            <div className="flex flex-wrap gap-3">
-              <Button onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')}>
-                <Mail className="mr-2 h-4 w-4" />
+            <div className="flex justify-center items-center gap-2 sm:gap-3 sm:flex-wrap">
+              <Button onClick={() => (window.location.href = 'mailto:h4mzashehzad@gmail.com')} className="px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base">
+                <Mail className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
                 Contact
               </Button>
               <a href="https://github.com/h4mzashehzad" target="_blank" rel="noreferrer" className="cursor-pointer">
-                <Button>
-                  <Github className="mr-2 h-4 w-4" />
+                <Button className="px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base">
+                  <Github className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
                   GitHub
                 </Button>
               </a>
+              <a href="https://www.linkedin.com/in/hamzashehzadpk" target="_blank" rel="noreferrer" className="cursor-pointer">
+                <Button className="px-3 py-2 text-sm sm:px-4 sm:py-2 sm:text-base">
+                  <Linkedin className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
+                  LinkedIn
+                </Button>
+              </a>
             </div>
-            <a href="https://www.linkedin.com/in/hamzashehzadpk" target="_blank" rel="noreferrer" className="cursor-pointer">
-              <Button>
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
-              </Button>
-            </a>
           </motion.div>
 
           {/* Enhanced Scroll indicator */}
             <motion.div 
               variants={fadeInUp} 
-              className="mt-16 flex flex-col items-center space-y-4"
+              className="mt-8 sm:mt-12 lg:mt-16 flex flex-col items-center space-y-4"
             >
               <motion.div 
                 className="group cursor-pointer select-none"
@@ -181,18 +183,20 @@ export default function Hero() {
           
           {/* Profile Card Column */}
           <motion.div
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
-            <ProfileCard />
+            <div className="w-full max-w-sm sm:max-w-md lg:max-w-none">
+              <ProfileCard />
+            </div>
           </motion.div>
         </div>
         
         {/* Technology Logo Loop - positioned at bottom of hero */}
         <motion.div 
-          className="absolute bottom-8 left-0 right-0 px-4"
+          className="absolute bottom-2 sm:bottom-4 lg:bottom-8 left-0 right-0 px-4"
           variants={fadeInUp}
           initial="hidden"
           animate="visible"

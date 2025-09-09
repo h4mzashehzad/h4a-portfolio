@@ -6,8 +6,8 @@ import { fadeInUp, itemFade, staggerContainer } from '../lib/animations'
 import { useContactModal } from '../contexts/ContactModalContext'
 import ProfileCard from './ui/ProfileCard'
 import LogoLoop from './ui/LogoLoop'
-import DotGrid from './ui/DotGrid'
 import DownloadResumeButton from './ui/DownloadResumeButton'
+import DotGrid from './ui/DotGrid'
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiGithub, SiPrisma, SiSupabase, SiVite } from 'react-icons/si'
 import TrueFocus from './TrueFocus'
 
@@ -78,10 +78,11 @@ export default function Hero() {
             />
           </motion.div>
           <motion.p variants={fadeInUp} className="mt-4 max-w-2xl text-slate-300 text-left text-sm sm:text-base">
-            Results driven full‑stack developer with 2+ years of hands-on experience. 
-            Specializing in delivering scalable and performing cross-platform mobile apps and
-            responsive web apps. Proven track record of delivering high quality products 
-            with a focus on user experience and performance.
+            Hi! I'm a results-driven full‑stack developer specializing in React Native mobile apps and 
+            React web apps with Next.js and Vite. I build scalable, high‑performance cross‑platform 
+            products with responsive UI, fast load times, and measurable UX wins. Proven 
+            delivery of production-grade apps end‑to‑end — architecture, development, and 
+            optimization — for startups and SMEs.
           </motion.p>
 
           <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
@@ -96,6 +97,15 @@ export default function Hero() {
             </motion.div>
             <motion.div variants={itemFade}>
               <Badge variant="mono">Next.js</Badge>
+            </motion.div>
+            <motion.div variants={itemFade}>
+              <Badge variant="mono">Tailwind CSS</Badge>
+            </motion.div>
+            <motion.div variants={itemFade}>
+              <Badge variant="mono">MySQL</Badge>
+            </motion.div>
+            <motion.div variants={itemFade}>
+              <Badge variant="mono">Supabase</Badge>
             </motion.div>
           </motion.div>
 

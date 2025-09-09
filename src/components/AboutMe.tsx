@@ -23,7 +23,7 @@ export default function AboutMe() {
     {
       icon: <Lightbulb className="w-5 h-5" />,
       title: 'Innovation Driven',
-      description: 'Always exploring cutting-edge technologies and pushing the boundaries of what\'s possible.'
+      description: 'Always exploring new technologies and pushing the boundaries of what\'s possible.'
     }
   ]
 
@@ -51,9 +51,9 @@ export default function AboutMe() {
   ]
 
   const coreSkills = {
-    'Frontend': ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    'Backend': ['Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Supabase'],
-    'Tools': ['Git', 'Docker', 'Vercel', 'Figma', 'Linear'],
+    'Frontend': ['React', 'Next.js', 'TypeScript', 'Tailwind CSS',],
+    'Backend': ['Node.js', 'Express', 'MySQL', 'Prisma', 'Supabase'],
+    'Tools': ['Git', 'Docker', 'Vercel', 'Figma', 'Amazon S3'],
     'Concepts': ['Design Systems', 'Performance', 'Accessibility', 'Testing']
   }
 
@@ -78,11 +78,11 @@ export default function AboutMe() {
       <motion.div variants={itemFade} className="relative pt-6">
         <div className="absolute -left-4 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
         <div className="pl-8">
-          <h3 className="text-2xl font-bold text-slate-100 mb-4">Building the Future, One Component at a Time</h3>
+          <h3 className="text-2xl font-bold text-slate-100 mb-4">Building the future with clean, component‑driven architecture.</h3>
           <p className="text-lg text-slate-300 leading-relaxed max-w-3xl">
             I'm a passionate full-stack developer who believes in the power of clean code, beautiful design, and 
-            meaningful user experiences. With a deep love for React and modern web technologies, I craft digital 
-            solutions that are not just functional, but delightful to use.
+            meaningful user experiences. With a deep love for React and modern web technologies like Vite and Next.js, I craft digital 
+            solutions that are not just functional, but are fast, reliable and a delight to use.
           </p>
         </div>
       </motion.div>

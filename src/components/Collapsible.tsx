@@ -12,19 +12,23 @@ function PortfolioContent() {
 
   const timelineData = [
     {
-      title: '2023 — Present',
+      title: '2025 — Present',
       content: (
         <div className="space-y-4">
           <div>
-            <h3 className="text-xl font-semibold text-slate-200">Senior Frontend Engineer</h3>
-            <p className="text-slate-400">@ Acme Inc.</p>
+            <h3 className="text-xl font-semibold text-slate-200">React Native App/Web Developer</h3>
+            <p className="text-slate-400">@ Markaz.pk</p>
           </div>
           <ul className="list-disc space-y-2 pl-5 text-slate-300">
-            <li>Led migration to React 18 + Vite with code-splitting and prefetching.</li>
-            <li>Built UI kit with composable primitives and motion-driven interactions.</li>
+            <li>Building a complex, data‑rich application with robust database connectivity, 
+              real‑time data flows, and a strong focus on user experience and performance.</li>
+            <li>Developing new website features and optimizing responsive UI to improve Core 
+              Web Vitals, elevate user experience, and drive growth metrics.</li>
+            <li>Implementing scalable feature enhancements in a complex admin dashboard 
+              to add, manage, and govern content with reliable role‑based workflows.</li>
           </ul>
           <div className="flex flex-wrap gap-2">
-            {['TypeScript', 'React', 'Vite', 'Tailwind', 'Framer Motion'].map((tech) => (
+            {['Connectivity', 'Security', 'Responsiveness', 'UI/UX'].map((tech) => (
               <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
                 {tech}
               </span>
@@ -34,19 +38,25 @@ function PortfolioContent() {
       ),
     },
     {
-      title: '2021 — 2023',
+      title: '2023 — 2024',
       content: (
         <div className="space-y-4">
           <div>
-            <h3 className="text-xl font-semibold text-slate-200">Full‑stack Engineer</h3>
-            <p className="text-slate-400">@ Globex</p>
+            <h3 className="text-xl font-semibold text-slate-200">Full Stack Developer Intern</h3>
+            <p className="text-slate-400">@ GRIPHENS Technologies</p>
           </div>
           <ul className="list-disc space-y-2 pl-5 text-slate-300">
-            <li>Shipped SSR features and optimized TTFB for key customer flows.</li>
-            <li>Implemented CI checks and tightened Lighthouse performance budgets.</li>
+            <li>Engineered responsive websites in WordPress, Webflow, and React, collaborating with 
+              design teams to translate Figma/UI/UX specs into accessible, pixel‑perfect interfaces 
+              that improve engagement and conversions.</li>
+            <li>Built back‑end functionality and integrated third‑party APIs 
+              (payments, auth, analytics) to enable secure data flows, automation, 
+              and feature scalability.</li>
+            <li>Optimized performance and Core Web Vitals, resolved production issues, and 
+              maintained clean Git workflows (branching, reviews, CI) for reliable releases.</li>
           </ul>
           <div className="flex flex-wrap gap-2">
-            {['Node.js', 'PostgreSQL', 'Playwright'].map((tech) => (
+            {['Figma to Code', 'API Integration', 'Git Workflows'].map((tech) => (
               <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
                 {tech}
               </span>
@@ -54,38 +64,43 @@ function PortfolioContent() {
           </div>
         </div>
       ),
-    },
-    {
-      title: '2019 — 2021',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-xl font-semibold text-slate-200">Frontend Developer</h3>
-            <p className="text-slate-400">@ StartupXYZ</p>
-          </div>
-          <ul className="list-disc space-y-2 pl-5 text-slate-300">
-            <li>Developed responsive web applications using modern JavaScript frameworks.</li>
-            <li>Collaborated with design team to implement pixel-perfect UI components.</li>
-            <li>Optimized application performance and improved user experience metrics.</li>
-          </ul>
-          <div className="flex flex-wrap gap-2">
-            {['JavaScript', 'Vue.js', 'SCSS', 'Webpack'].map((tech) => (
-              <span key={tech} className="px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      ),
-    },
+    }
   ]
 
   const projects: ProjectCardProps[] = [
     {
-      title: 'Portfolio Starter',
-      description: 'Dark-first, motion-polished portfolio template with accessible primitives.',
-      stack: ['React', 'Tailwind', 'Radix', 'Motion'],
-      image: '/Projects/project1.png',
+      title: 'Commercial Property Manager App',
+      description: 'A complete management app for agencies to add, update and organize listings and inquiries.',
+      stack: ['React Native', 'Expo', 'MySQL', 'REST API'],
+      image: '/Projects/markaz-agent/main.png',
+      href: '#',
+      images: [
+        '/Projects/markaz-agent/1.png',
+        '/Projects/markaz-agent/2.png',
+        '/Projects/markaz-agent/3.png',
+        '/Projects/markaz-agent/4.png',
+      ], // Add your project images here: ['/Projects/project3-1.png', '/Projects/project3-2.png']
+      showLiveButton: false // Example: hiding live button for this project
+    },
+    {
+      title: 'Domain Marketplace App',
+      description: 'A sleek, minimal React Native domain marketplace app dedicated to .pk domains.',
+      stack: ['React Native', 'Expo', 'MySQL', 'Axios'],
+      image: '/Projects/pk-domains/main.png',
+      href: '#',
+      images: [
+        '/Projects/pk-domains/1.png',
+        '/Projects/pk-domains/2.png',
+        '/Projects/pk-domains/3.png',
+        '/Projects/pk-domains/4.png',
+      ], // Add your project images here: ['/Projects/project2-1.png', '/Projects/project2-2.png']
+      showLiveButton: false
+    },
+    {
+      title: 'Masonry Photography Portfolio',
+      description: 'Dark‑mode, motion‑polished media gallery with auto‑resize and responsive performance.',
+      stack: ['Vite', 'Tailwind', 'Radix', 'Supabase'],
+      image: '/Projects/auraze-media/main.png',
       href: 'https://www.aurazemedia.com',
       images: [
         '/Projects/auraze-media/1.png',
@@ -93,25 +108,7 @@ function PortfolioContent() {
         '/Projects/auraze-media/3.png',
         '/Projects/auraze-media/4.png',
       ], // Add your project images here: ['/Projects/project1-1.png', '/Projects/project1-2.png']
-      showLiveButton: false
-    },
-    {
-      title: 'API Dashboard',
-      description: 'Live usage analytics with charts, filters, and role-based access control.',
-      stack: ['TypeScript', 'Vite', 'Charts'],
-      image: '/Projects/project2.png',
-      href: '#',
-      images: [], // Add your project images here: ['/Projects/project2-1.png', '/Projects/project2-2.png']
       showLiveButton: true
-    },
-    {
-      title: 'Design Tokens',
-      description: 'Cross-platform design tokens pipeline powering theming and accessibility.',
-      stack: ['Tokens', 'CI/CD', 'Theming'],
-      image: '/Projects/project3.png',
-      href: '#',
-      images: [], // Add your project images here: ['/Projects/project3-1.png', '/Projects/project3-2.png']
-      showLiveButton: false // Example: hiding live button for this project
     },
   ]
 
@@ -130,7 +127,7 @@ function PortfolioContent() {
 
             {/* Portfolio */}
             <AccordionItem value="portfolio">
-              <AccordionTrigger subtitle="Selected work with code and demos">Portfolio</AccordionTrigger>
+              <AccordionTrigger subtitle="Latest work">Portfolio</AccordionTrigger>
               <AccordionContent>
                 <motion.div
                   variants={staggerContainer}

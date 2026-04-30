@@ -8,9 +8,9 @@ const left: [string, string][] = [
 ];
 
 const right: [string, string][] = [
-  ["READ", "Manga · Stoics · Pragmatic Programmer"],
-  ["LISTEN", "Lo-fi · Nusrat · Synthwave"],
-  ["CITY", "Islamabad → ??"],
+  ["READ", "Manga · Mystery Novels"],
+  ["LISTEN", "Lo-fi · Pop · Synthwave"],
+  ["CITY", "Islamabad → Pakistan"],
   ["LEARN", "Software Engineering @ SZABIST"],
   ["NOW", "Building in public. Shipping weekly."],
   ["OPEN", "Freelance & full-time roles"],

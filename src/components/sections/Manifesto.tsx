@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const lines = [
-  { text: "BUILD IT FAST.", indent: "ml-0", color: "text-foreground" },
-  { text: "SHIP IT CLEAN.", indent: "md:ml-[18%]", color: "text-foreground" },
-  { text: "MAKE IT MATTER.", indent: "md:ml-[6%]", color: "text-secondary" },
+  { text: "PLAN DEEP.", indent: "ml-0", color: "text-foreground" },
+  { text: "CODE SMART.", indent: "md:ml-[18%]", color: "text-foreground" },
+  { text: "EVOLVE CONSTANTLY.", indent: "md:ml-[6%]", color: "text-secondary" },
 ];
 
 export const Manifesto = () => {

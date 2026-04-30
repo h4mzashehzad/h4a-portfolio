@@ -35,18 +35,18 @@ const projects: Project[] = [
     bg: "linear-gradient(135deg, hsl(0 70% 25%), hsl(13 100% 30%))",
     accent: "foreground",
     image: null, // TODO: add RedLife image → e.g. "/projects/redlife.jpg"
-    url: null, // TODO: add RedLife URL → e.g. "https://redlife.app"
+    url: "https://redlife.pk/mobile", // TODO: add RedLife URL → e.g. "https://redlife.app"
   },
   {
     num: "002",
-    title: "MARKAZ",
+    title: "MARKAZ AGENT",
     kicker: "Property & Agency Manager",
     desc: "A comprehensive management app for real-estate agencies — centralised listings, inquiries, and operations from one platform.",
     tags: ["REACT NATIVE", "MYSQL", "ADMIN DASHBOARD", "REACT"],
     bg: "linear-gradient(135deg, hsl(200 50% 18%), hsl(220 60% 28%))",
     accent: "secondary",
     image: null, // TODO: add Markaz image → e.g. "/projects/markaz.jpg"
-    url: null, // TODO: add Markaz URL → e.g. "https://markaz.app"
+    url: "https://play.google.com/store/apps/details?id=com.markaz.agent", // TODO: add Markaz URL → e.g. "https://markaz.app"
   },
   {
     num: "003",
@@ -57,29 +57,29 @@ const projects: Project[] = [
     bg: "linear-gradient(135deg, hsl(160 40% 15%), hsl(140 50% 22%))",
     accent: "foreground",
     image: null, // TODO: add PKDomains image → e.g. "/projects/pkdomains.jpg"
-    url: null, // TODO: add PKDomains URL → e.g. "https://pkdomains.com"
+    url: "https://play.google.com/store/apps/details?id=com.pkdomains.app&hl=en", // TODO: add PKDomains URL → e.g. "https://pkdomains.com"
   },
   {
     num: "004",
-    title: "AURAZE",
+    title: "AURAZE MEDIA",
     kicker: "Photography Portfolio",
     desc: "A visually immersive portfolio for a photography brand. Masonry layout, infinite scroll, and a custom CMS — built end-to-end.",
     tags: ["REACT 18", "VITE", "MASONRY", "CUSTOM CMS"],
     bg: "linear-gradient(135deg, hsl(30 30% 15%), hsl(20 50% 25%))",
     accent: "secondary",
-    image: null, // TODO: add Auraze image → e.g. "/projects/auraze.jpg"
-    url: null, // TODO: add Auraze URL → e.g. "https://auraze.com"
+    image: "/Projects/auraze-media/main.png", // TODO: add Auraze image → e.g. "/projects/auraze.jpg"
+    url: "https://aurazemedia.com", // TODO: add Auraze URL → e.g. "https://auraze.com"
   },
   {
     num: "005",
     title: "THIS PORTFOLIO",
     kicker: "Editorial scroll experience",
-    desc: "The site you're reading right now. Built to feel like something. Built to mean something. Kept raw.",
+    desc: "The site you're reading right now. Built to feel like something. Built to mean something. Kept clean.",
     tags: ["REACT", "TYPESCRIPT", "GSAP", "LENIS", "TAILWIND"],
     bg: "linear-gradient(135deg, hsl(266 44% 25%), hsl(24 11% 4%))",
     accent: "primary",
     image: null, // TODO: add screenshot → e.g. "/projects/portfolio.jpg"
-    url: null, // TODO: add live URL → e.g. "https://hamza.dev"
+    url: "https://www.h4a.dev", // TODO: add live URL → e.g. "https://hamza.dev"
   },
 ];
 
@@ -136,14 +136,14 @@ export const Projects = () => {
         <Wrapper
           key={p.num}
           {...wrapperProps}
-          className={`project-panel group relative min-h-screen w-full overflow-hidden flex items-end px-6 md:px-10 py-20 ${
-            p.url ? "block cursor-pointer transition-colors" : ""
+          className={`project-panel group relative z-0 min-h-screen w-full overflow-hidden flex items-end px-6 md:px-10 py-20 ${
+            p.url ? "cursor-pointer transition-colors" : ""
           }`}
         >
           {/* ===== PROJECT BACKGROUND =====
               If `image` is set, it renders here. Otherwise, the gradient
               fallback is shown. Replace via the `image` field above. */}
-          <div className="project-bg absolute inset-0 -z-10">
+          <div className="project-bg absolute top-0 left-0 w-full h-[120%] -z-10">
             {p.image ? (
               <img
                 src={p.image}
@@ -157,13 +157,6 @@ export const Projects = () => {
           </div>
           <div className="absolute inset-0 -z-10 bg-background/60 transition-colors group-hover:bg-background/40" />
 
-          {/* Visible-in-dev placeholder marker — remove once images are added */}
-          {!p.image && (
-            <div className="absolute top-24 right-6 md:right-10 border border-dashed border-foreground/30 px-3 py-2 text-[10px] tracking-[0.2em] text-foreground/50 uppercase">
-              [ IMAGE PLACEHOLDER · {p.title} ]
-            </div>
-          )}
-
           {/* Visit-link cue (top-right). Shown only when a URL is set. */}
           {p.url && (
             <div className="absolute top-24 right-6 md:right-10 flex items-center gap-2 border border-foreground/40 px-3 py-2 text-[10px] tracking-[0.2em] text-foreground/80 uppercase backdrop-blur-sm transition-all group-hover:border-primary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -171,13 +164,7 @@ export const Projects = () => {
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </div>
           )}
-          {/* Placeholder cue when no URL is set yet — remove once URLs are added */}
-          {!p.url && (
-            <div className="absolute bottom-6 right-6 md:right-10 border border-dashed border-foreground/30 px-3 py-2 text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
-              [ ADD URL · {p.title} ]
-            </div>
-          )}
-
+          
           <div className="absolute top-24 left-6 md:left-10 text-[11px] tracking-[0.2em] text-meta">
             {p.num} / {projects.length.toString().padStart(3, "0")}
           </div>

@@ -17,7 +17,7 @@ const Index = () => {
       Object.assign(document.createElement("meta"), { name: "description" });
     meta.setAttribute(
       "content",
-      "Hamza Shehzad — Full Stack Developer building React, React Native and Laravel products from Islamabad."
+      "Hamza Shehzad — Full Stack Developer building React, React Native and Laravel products."
     );
     if (!meta.parentNode) document.head.appendChild(meta);
   }, []);

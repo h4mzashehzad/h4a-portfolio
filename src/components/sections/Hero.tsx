@@ -26,8 +26,8 @@ export const Hero = () => {
     <section ref={root} className="relative h-screen w-full overflow-hidden">
       {/* Top meta */}
       <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 text-[11px] tracking-[0.2em] text-meta uppercase">
-        <span className="hero-meta">HAMZASHEHZAD.DEV</span>
-        <span className="hero-meta">VOL 1 / 2026</span>
+        <span className="hero-meta">REACT NATIVE EXPERT</span>
+        <span className="hero-meta">H4A.DEV</span>
       </div>
 
       {/* Display name */}
@@ -44,8 +44,8 @@ export const Hero = () => {
         <div className="flex items-end justify-between text-[11px] tracking-[0.2em] uppercase">
           <span className="hero-meta text-meta">P. 001</span>
           <div className="hero-meta text-right">
-            <div className="text-foreground/80">/ FULL STACK DEVELOPER</div>
-            <div className="text-primary mt-1">↓ SCROLL TO TUNE IN</div>
+            <div className="text-foreground/80">/ FULL STACK DEVELOPER | MOBILE APPS & WEB APPS</div>
+            <div className="text-primary mt-1">↓ SCROLL TO DIVE IN</div>
           </div>
         </div>
       </div>

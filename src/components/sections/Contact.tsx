@@ -1,8 +1,7 @@
 const links = [
-  { label: "GITHUB", href: "https://github.com/" },
-  { label: "LINKEDIN", href: "https://linkedin.com/" },
-  { label: "RESUME", href: "/hamza-shehzad-resume.pdf" },
-  { label: "+92 319 5299 636", href: "tel:+923195299636" },
+  { label: "GITHUB", href: "https://github.com/h4mzashehzad" },
+  { label: "LINKEDIN", href: "https://www.linkedin.com/in/hamzashehzadpk/" },
+  { label: "RESUME", href: "/Hamza Shehzad_Resume.pdf" },
 ];
 
 export const Contact = () => (
@@ -37,7 +36,7 @@ export const Contact = () => (
 
     <footer className="mt-20 flex flex-wrap items-center justify-between gap-4 text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
       <span>© 2026 Hamza Shehzad — Islamabad, PK</span>
-      <span>Built raw. Shipped clean.</span>
+      <span>Built raw. Kept minimal.</span>
     </footer>
   </section>
 );

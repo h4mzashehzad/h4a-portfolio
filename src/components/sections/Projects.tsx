@@ -34,7 +34,7 @@ const projects: Project[] = [
     tags: ["REACT NATIVE", "LARAVEL", "MYSQL", "REAL-TIME"],
     bg: "linear-gradient(135deg, hsl(0 70% 25%), hsl(13 100% 30%))",
     accent: "foreground",
-    image: null, // TODO: add RedLife image → e.g. "/projects/redlife.jpg"
+    image: "/Projects/redlife/main.png", // TODO: add RedLife image → e.g. "/projects/redlife.jpg"
     url: "https://redlife.pk/mobile", // TODO: add RedLife URL → e.g. "https://redlife.app"
   },
   {
@@ -45,7 +45,7 @@ const projects: Project[] = [
     tags: ["REACT NATIVE", "MYSQL", "ADMIN DASHBOARD", "REACT"],
     bg: "linear-gradient(135deg, hsl(200 50% 18%), hsl(220 60% 28%))",
     accent: "secondary",
-    image: null, // TODO: add Markaz image → e.g. "/projects/markaz.jpg"
+    image: "/Projects/markaz-agent/image1.png", // TODO: add Markaz image → e.g. "/projects/markaz.jpg"
     url: "https://play.google.com/store/apps/details?id=com.markaz.agent", // TODO: add Markaz URL → e.g. "https://markaz.app"
   },
   {
@@ -56,7 +56,7 @@ const projects: Project[] = [
     tags: ["REACT NATIVE", "MYSQL", "MARKETPLACE"],
     bg: "linear-gradient(135deg, hsl(160 40% 15%), hsl(140 50% 22%))",
     accent: "foreground",
-    image: null, // TODO: add PKDomains image → e.g. "/projects/pkdomains.jpg"
+    image: "/Projects/pk-domains/image1.png", // TODO: add PKDomains image → e.g. "/projects/pkdomains.jpg"
     url: "https://play.google.com/store/apps/details?id=com.pkdomains.app&hl=en", // TODO: add PKDomains URL → e.g. "https://pkdomains.com"
   },
   {
@@ -67,7 +67,7 @@ const projects: Project[] = [
     tags: ["REACT 18", "VITE", "MASONRY", "CUSTOM CMS"],
     bg: "linear-gradient(135deg, hsl(30 30% 15%), hsl(20 50% 25%))",
     accent: "secondary",
-    image: "/Projects/auraze-media/main.png", // TODO: add Auraze image → e.g. "/projects/auraze.jpg"
+    image: "/Projects/auraze-media/image1.png", // TODO: add Auraze image → e.g. "/projects/auraze.jpg"
     url: "https://aurazemedia.com", // TODO: add Auraze URL → e.g. "https://auraze.com"
   },
   {

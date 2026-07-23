@@ -92,7 +92,11 @@
   }
   /* Custom cursor — hide native on fine pointers */
   @media (pointer: fine) {
-    html, body, * { cursor: none !important; }
+    html:not(.native-cursor),
+    html:not(.native-cursor) body,
+    html:not(.native-cursor) * {
+      cursor: none !important;
+    }
   }
   ::selection {
     background: hsl(var(--primary));

@@ -26,7 +26,7 @@
 .site-header a, .footer-links a { transition: opacity 180ms ease; }
 .site-header a:hover, .footer-links a:hover { opacity: .6; }
 .hero { padding-top: 16px; }
-.hero h1, .footer-name { display: flex; justify-content: space-between; gap: .12em; font-size: var(--display); letter-spacing: -.075em; line-height: .98; font-weight: 800; white-space: nowrap; }
+.hero h1, .footer-name { font-size: var(--display); letter-spacing: -.075em; word-spacing: .12em; line-height: .98; font-weight: 800; white-space: nowrap; }
 .hero-intro-row { display: flex; justify-content: space-between; align-items: center; gap: 64px; margin-top: 28px; }
 .hero-intro { max-width: 47ch; font-size: var(--lead); line-height: 1.45; }
 .primary-action { display: inline-flex; flex-shrink: 0; gap: 44px; align-items: center; justify-content: space-between; background: var(--accent); color: var(--accent-ink) !important; min-height: 58px; padding: 16px 26px; border-radius: 100px; font-size: var(--small); transition: transform 240ms var(--ease); }
@@ -144,8 +144,7 @@
   .site-header nav a:last-child { display: none; }
   .header-contact { gap: 8px; }
   .hero { padding-top: 12px; }
-  .hero h1 { flex-direction: column; gap: 0; line-height: .98; white-space: normal; }
-  .hero h1 span:last-child { align-self: flex-end; }
+  .hero h1 { line-height: .98; white-space: normal; }
   .hero h1 span { display: block; }
   .hero-intro-row { display: block; margin-top: 28px; }
   .hero-intro { font-size: var(--body); max-width: 38ch; }

@@ -1,54 +1,28 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
+import { projects } from "@/data/projects";
+import { ProductVisual } from "@/components/ProductVisual";
 
 export const Hero = () => {
-  const root = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(".hero-line-1", {
-        xPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
-      });
-      gsap.to(".hero-line-2", {
-        xPercent: 8,
-        ease: "none",
-        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
-      });
-      gsap.from(".hero-meta", { opacity: 0, y: 20, duration: 1, stagger: 0.1, delay: 0.2 });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={root} className="relative h-screen w-full overflow-hidden">
-      {/* Top meta */}
-      <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 text-[11px] tracking-[0.2em] text-meta uppercase">
-        <span className="hero-meta">REACT NATIVE EXPERT</span>
-        <span className="hero-meta">H4A.DEV</span>
-      </div>
-
-      {/* Display name */}
-      <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-10">
-        <h1 className="font-display text-[clamp(5rem,18vw,20rem)] uppercase leading-[0.82] tracking-[-0.03em]">
-          <span className="hero-line-1 block text-primary">Hamza</span>
-          <span className="hero-line-2 block text-secondary">Shehzad</span>
-        </h1>
-      </div>
-
-      {/* Bottom rule + meta */}
-      <div className="absolute inset-x-0 bottom-0 px-6 pb-6">
-        <div className="h-px w-full bg-primary/40 mb-3" />
-        <div className="flex items-end justify-between text-[11px] tracking-[0.2em] uppercase">
-          <span className="hero-meta text-meta">P. 001</span>
-          <div className="hero-meta text-right">
-            <div className="text-foreground/80">/ FULL STACK DEVELOPER | MOBILE APPS & WEB APPS</div>
-            <div className="text-primary mt-1">↓ SCROLL TO DIVE IN</div>
-          </div>
+  const [active, setActive] = useState(1);
+  const [view, setView] = useState(0);
+  const project = projects[active];
+  return <section className="hero frame" aria-labelledby="hero-title">
+    <h1 id="hero-title"><span>Hamza</span>{" "}<span>Shehzad</span></h1>
+    <div className="hero-intro-row">
+      <p className="hero-intro">Full stack developer. I build mobile apps and web products, from the interface to the systems behind it.</p>
+      <a className="primary-action" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+    </div>
+    <div className={`hero-exhibit exhibit-${project.id}`}>
+      <div className="exhibit-top"><div className="project-picker" aria-label="Featured projects">{projects.map((item, index) => <button key={item.id} aria-pressed={active === index} onClick={() => { setActive(index); setView(0); }}>{item.shortTitle}</button>)}</div><span className="exhibit-platform">Mobile & web development</span></div>
+      <div className="exhibit-content">
+        <div className="exhibit-copy" key={project.id}>
+          <h2>{project.title}</h2><p>{project.kind}</p>
+          <a href={project.url} target="_blank" rel="noreferrer">Visit project</a>
         </div>
+        <ProductVisual project={project} view={view} eager />
       </div>
-    </section>
-  );
+      <div className="exhibit-bottom"><span>Built by Hamza. Used in the real world.</span><button className="next-view" onClick={() => setView(value => value + 1)}>Next screen <span aria-hidden="true">→</span></button></div>
+    </div>
+    <div className="hero-footnote"><span>Based in Islamabad, Pakistan</span><span>React Native, React & Laravel</span></div>
+  </section>;
 };

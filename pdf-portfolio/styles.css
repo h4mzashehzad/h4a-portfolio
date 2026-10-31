@@ -1,0 +1,730 @@
+/* Hallmark · Long Document soft-luxury print portfolio — layout */
+
+@import url("./tokens.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  font-synthesis: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+p {
+  margin: 0 0 var(--space-md);
+  max-width: var(--measure);
+}
+
+/* —— Masthead (N6 print) —— */
+.doc-masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--page-pad-x);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.doc-masthead__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.doc-masthead__meta {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* —— Document shell —— */
+.doc {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 var(--page-pad-x) var(--space-4xl);
+}
+
+.chapter {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.chapter + .chapter {
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.chapter__label {
+  display: block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.chapter__title {
+  font-size: var(--text-3xl);
+  margin: 0 0 var(--space-lg);
+  max-width: 18ch;
+}
+
+.chapter__title--display {
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 0.95;
+  max-width: 12ch;
+  margin-bottom: var(--space-md);
+}
+
+.lede {
+  font-size: var(--text-lg);
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+  max-width: var(--measure-wide);
+  margin-bottom: var(--space-xl);
+}
+
+.inline-head {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  font-style: normal;
+  margin: var(--space-xl) 0 var(--space-sm);
+  color: var(--color-ink);
+}
+
+.pull {
+  margin: var(--space-xl) 0;
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  border-left: var(--rule-thick) solid var(--color-accent);
+  max-width: var(--measure);
+}
+
+.pull p {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1.35;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.ornament {
+  display: block;
+  text-align: center;
+  color: var(--color-accent-soft);
+  font-size: var(--text-lg);
+  letter-spacing: 0.4em;
+  margin: var(--space-xl) 0;
+  user-select: none;
+}
+
+.keep-together {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* —— Cover —— */
+.cover {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  border-top: none;
+}
+
+.cover__eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.cover__role {
+  margin-top: var(--space-lg);
+  font-size: var(--text-md);
+  color: var(--color-neutral);
+  max-width: 36ch;
+  line-height: 1.5;
+}
+
+.cover__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* —— Process steps —— */
+.process {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xl) 0 0;
+  max-width: var(--measure-wide);
+}
+
+.process li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+.process li:first-child {
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.process__num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.process__body h3 {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-2xs);
+}
+
+.process__body p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* —— Case study —— */
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.case-meta strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin: var(--space-md) 0 var(--space-xl);
+  list-style: none;
+  padding: 0;
+}
+
+.tags li {
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral);
+  border: var(--rule-hair) solid var(--color-rule-strong);
+  padding: 0.35em 0.7em;
+  border-radius: var(--radius-sm);
+}
+
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+  max-width: 100%;
+}
+
+.shot-grid--hero {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.shot-grid--trio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+figure.shot {
+  margin: 0;
+  background: var(--color-figure-bg);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  break-inside: avoid;
+}
+
+figure.shot img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+figure.shot figcaption {
+  padding: var(--space-2xs) var(--space-xs);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.case-link {
+  font-size: var(--text-sm);
+  margin-top: var(--space-md);
+}
+
+/* —— Stack table —— */
+.stack-list {
+  margin: var(--space-lg) 0 0;
+  max-width: var(--measure-wide);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.stack-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  align-items: baseline;
+}
+
+.stack-row dt {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.stack-row dd {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+/* —— Experience —— */
+.job {
+  padding: var(--space-lg) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  max-width: var(--measure-wide);
+  break-inside: avoid;
+}
+
+.job:first-of-type {
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.job__when {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.job__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin: 0 0 var(--space-3xs);
+}
+
+.job__role {
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+  margin-bottom: var(--space-sm);
+}
+
+.job ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.job li {
+  margin-bottom: var(--space-2xs);
+}
+
+.field-note {
+  margin-top: var(--space-xl);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  max-width: var(--measure-wide);
+}
+
+/* —— Close / CTA (Ft5) —— */
+.close {
+  text-align: left;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+.close__cta {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--text-display-s);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-ink);
+  text-decoration: none;
+  line-height: 1.1;
+  margin: var(--space-lg) 0;
+  border-bottom: var(--rule-thick) solid var(--color-accent);
+  padding-bottom: 0.12em;
+  max-width: 16ch;
+}
+
+.doc-footer {
+  margin-top: var(--space-3xl);
+  padding: var(--space-lg) 0;
+  border-top: var(--rule-hair) solid var(--color-rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* —— Screen preview frame —— */
+@media screen {
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(94% 0.03 48 / 0.55), transparent),
+      var(--color-paper);
+  }
+
+  .doc {
+    background: var(--color-paper);
+  }
+}
+
+/* —— Mobile —— */
+@media (max-width: 640px) {
+  .shot-grid,
+  .shot-grid--trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stack-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xs);
+  }
+
+  .process li {
+    grid-template-columns: 2.5rem 1fr;
+  }
+
+  .chapter__title {
+    font-size: var(--text-2xl);
+  }
+
+  .close__cta {
+    font-size: var(--text-2xl);
+  }
+}
+
+/*
+ * PDF export (html.is-pdf) — keep SCREEN layout (same as browser preview).
+ * Pagination rules aim to:
+ *  - never slice a figure mid-image
+ *  - never split a paragraph mid-sentence
+ *  - allow screenshot grids to flow (so leftover page space fills)
+ */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+html.is-pdf,
+html.is-pdf body {
+  background: var(--color-paper) !important;
+  overflow: visible;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+html.is-pdf .doc-masthead {
+  position: static;
+  max-width: 794px;
+  margin: 0 auto;
+  padding: 14mm 16mm 8mm;
+  box-sizing: border-box;
+}
+
+html.is-pdf .doc {
+  max-width: 794px;
+  margin: 0 auto;
+  padding: 0 16mm 18mm;
+  box-sizing: border-box;
+}
+
+html.is-pdf .chapter {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+}
+
+html.is-pdf .chapter--break {
+  break-before: page;
+  page-break-before: always;
+}
+
+html.is-pdf .cover {
+  min-height: calc(297mm - 38mm);
+  break-after: page;
+  page-break-after: always;
+  padding-top: var(--space-3xl);
+}
+
+/* Keep prose blocks intact — no mid-sentence page breaks */
+html.is-pdf p,
+html.is-pdf .lede,
+html.is-pdf .pull,
+html.is-pdf .inline-head,
+html.is-pdf .case-meta,
+html.is-pdf .tags,
+html.is-pdf .process li,
+html.is-pdf .stack-row,
+html.is-pdf .job,
+html.is-pdf .doc-footer,
+html.is-pdf .close__cta {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  orphans: 4;
+  widows: 4;
+}
+
+html.is-pdf h2,
+html.is-pdf h3 {
+  break-after: avoid;
+  page-break-after: avoid;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Grids may split between items; each figure stays whole */
+html.is-pdf .shot-grid {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+html.is-pdf figure.shot {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-before: auto;
+  -webkit-column-break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Cap heights so a hero + at least one detail row can share a page */
+html.is-pdf .shot-grid--hero figure.shot img {
+  max-height: 105mm;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
+html.is-pdf .shot-grid:not(.shot-grid--hero) figure.shot img {
+  max-height: 78mm;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
+html.is-pdf .keep-together {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+html.is-pdf .close {
+  break-before: page;
+  page-break-before: always;
+}
+
+html.is-pdf img {
+  image-rendering: auto;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Legacy @media print: mirror is-pdf so browser Print also matches */
+@media print {
+  html,
+  body {
+    background: var(--color-paper) !important;
+    overflow: visible;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .doc-masthead {
+    position: static;
+    max-width: 794px;
+    margin: 0 auto;
+    padding: 14mm 16mm 8mm;
+    box-sizing: border-box;
+  }
+
+  .doc {
+    max-width: 794px;
+    margin: 0 auto;
+    padding: 0 16mm 18mm;
+    box-sizing: border-box;
+  }
+
+  .chapter {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  .chapter--break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .cover {
+    min-height: calc(297mm - 38mm);
+    break-after: page;
+    page-break-after: always;
+  }
+
+  p,
+  .lede,
+  .pull,
+  .inline-head,
+  .case-meta,
+  .tags,
+  .process li,
+  .stack-row,
+  .job,
+  .doc-footer,
+  .close__cta {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    orphans: 4;
+    widows: 4;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shot-grid {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  figure.shot {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+  }
+
+  .shot-grid--hero figure.shot img {
+    max-height: 105mm;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .shot-grid:not(.shot-grid--hero) figure.shot img {
+    max-height: 78mm;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .close {
+    break-before: page;
+    page-break-before: always;
+  }
+}

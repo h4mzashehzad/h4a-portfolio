@@ -1,0 +1,10 @@
+{
+  "scanned_at": "2026-08-04",
+  "font_stack": "Anton + JetBrains Mono (site); PDF uses Cormorant Garamond + Newsreader",
+  "palette": "Site: dark HSL editorial (src/index.css). PDF: custom soft-luxury OKLCH terracotta (pdf-portfolio/tokens.css)",
+  "motion": "gsap + lenis on site; motion-cut for PDF",
+  "spacing": "Tailwind defaults on site; 4pt semantic scale on PDF",
+  "framework": "Vite + React + Tailwind + shadcn",
+  "preserve": ["site font stack", "site palette", "site routes"],
+  "introduce": ["pdf-portfolio Long Document", "custom terracotta tokens", "Playwright PDF pipeline"]
+}

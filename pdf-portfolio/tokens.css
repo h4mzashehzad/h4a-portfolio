@@ -1,0 +1,69 @@
+/* Hallmark · pre-emit critique: P5 H5 E5 S4 R5 V4 */
+/* Hallmark · macrostructure: Long Document · tone: soft-luxury · genre: editorial
+ * theme: custom (vibe: "soft luxury, warm terracotta, calm paper")
+ * paper: oklch(97% 0.012 55) · accent: oklch(55% 0.145 45) terracotta
+ * fonts: Cormorant Garamond (display) + Newsreader (body)
+ * theme_axes: light / classical-serif / warm
+ * nav: N6 masthead (print) · footer: Ft5 statement
+ * enrichment: none (project screenshots inline) · studied: no
+ */
+
+:root {
+  /* Soft-luxury warm paper system — terracotta anchor hue ~45–55 */
+  --color-paper: oklch(97% 0.012 55);
+  --color-paper-2: oklch(94.5% 0.014 55);
+  --color-paper-3: oklch(91% 0.016 52);
+  --color-rule: oklch(84% 0.018 50);
+  --color-rule-strong: oklch(72% 0.03 48);
+  --color-muted: oklch(48% 0.02 45);
+  --color-neutral: oklch(38% 0.022 45);
+  --color-ink: oklch(22% 0.025 42);
+  --color-ink-soft: oklch(28% 0.022 44);
+  --color-accent: oklch(55% 0.145 45);
+  --color-accent-soft: oklch(72% 0.08 48);
+  --color-accent-ink: oklch(97% 0.01 55);
+  --color-focus: oklch(50% 0.16 45);
+  --color-figure-bg: oklch(95% 0.01 55);
+
+  --font-display: "Cormorant Garamond", "Cormorant", "Times New Roman", serif;
+  --font-body: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+
+  /* Perfect fourth scale (~1.333) from 16px base */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-md: 1.1875rem;
+  --text-lg: 1.333rem;
+  --text-xl: 1.777rem;
+  --text-2xl: 2.369rem;
+  --text-3xl: 3.157rem;
+  --text-4xl: 4.209rem;
+  --text-display: clamp(3.2rem, 8vw, 5.5rem);
+  --text-display-s: clamp(2.4rem, 5vw, 3.6rem);
+
+  /* 4pt spacing scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+
+  --measure: 62ch;
+  --measure-wide: 72ch;
+  --page-pad-x: clamp(1.25rem, 4vw, 2.75rem);
+  --page-pad-y: clamp(1.5rem, 3vw, 2.5rem);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --rule-hair: 1px;
+  --rule-thick: 2px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --dur-fast: 150ms;
+  --dur-med: 280ms;
+}
